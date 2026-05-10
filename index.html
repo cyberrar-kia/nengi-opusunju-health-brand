@@ -6,70 +6,57 @@
   <title>HealthBody Community</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- TikTok Pixel Code Start -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+    ttq.load('D806VLRC77U44OJJ1CVG');
+    ttq.page();
+  }(window, document, 'ttq'));
+  </script>
+  <!-- TikTok Pixel Code End -->
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --green-deep: #0d3b2e;
-      --green-mid:  #145c44;
-      --green-accent: #1e8a5e;
-      --gold:       #c9933a;
-      --gold-light: #e8b96a;
-      --cream:      #faf6ef;
-      --cream-dark: #f0e9dd;
-      --white:      #ffffff;
-      --text-dark:  #0d1f19;
-      --text-muted: #4a6358;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); min-height: 100vh; overflow-x: hidden; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(30,138,94,.12) 0%, transparent 70%), url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230d3b2e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
-    .page-wrap { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
-    .header-band { background: var(--green-deep); text-align: center; padding: 14px 24px; letter-spacing: .18em; font-size: 10px; font-weight: 600; color: var(--gold-light); text-transform: uppercase; position: sticky; top: 0; z-index: 10; }
-    .hero { padding: 72px 0 56px; text-align: center; animation: fadeUp .9s ease both; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--green-accent); margin-bottom: 28px; }
-    .eyebrow::before, .eyebrow::after { content: ''; width: 32px; height: 1px; background: var(--green-accent); opacity: .6; }
-    .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 8vw, 58px); font-weight: 700; line-height: 1.08; color: var(--green-deep); margin-bottom: 8px; }
-    .hero-headline .accent { color: var(--gold); display: block; font-style: italic; }
-    .pulse-line { margin: 36px auto; width: 100%; max-width: 420px; display: block; }
-    .truth-card { background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 16px 16px 0; padding: 32px 28px; margin: 0 0 32px; box-shadow: 0 8px 40px rgba(13,59,46,.08); animation: fadeUp .9s .2s ease both; }
-    .truth-card p { font-size: 15.5px; line-height: 1.75; color: var(--text-muted); margin-bottom: 14px; }
-    .truth-card p:last-child { margin-bottom: 0; }
-    .truth-highlight { font-weight: 600; color: var(--green-deep); font-size: 16px; }
-    .cta-label { display: inline-block; background: var(--green-deep); color: var(--gold-light); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-top: 8px; }
-    .offer-box { background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%); border-radius: 20px; padding: 36px 28px; color: var(--white); margin-bottom: 32px; position: relative; overflow: hidden; animation: fadeUp .9s .35s ease both; }
-    .offer-box::after { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: rgba(201,147,58,.12); }
-    .offer-badge { background: var(--gold); color: var(--green-deep); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; display: inline-block; margin-bottom: 18px; }
-    .offer-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; line-height: 1.3; color: var(--gold-light); margin-bottom: 16px; }
-    .offer-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .offer-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.55; color: rgba(255,255,255,.88); }
-    .offer-list li::before { content: '✦'; color: var(--gold); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
-    .urgency { text-align: center; margin-bottom: 32px; animation: fadeUp .9s .5s ease both; }
-    .urgency p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
-    .urgency strong { color: var(--green-deep); font-weight: 600; }
-    .cta-wrap { text-align: center; animation: fadeUp .9s .65s ease both; }
-    .cta-btn { display: inline-block; background: var(--gold); color: var(--green-deep); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 20px 48px; border-radius: 100px; border: none; cursor: pointer; box-shadow: 0 6px 28px rgba(201,147,58,.40); transition: transform .2s ease, box-shadow .2s ease, background .2s ease; position: relative; overflow: hidden; }
-    .cta-btn::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,.15); transform: translateX(-105%); transition: transform .4s ease; border-radius: inherit; }
-    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(201,147,58,.45); background: var(--gold-light); }
-    .cta-btn:hover::before { transform: translateX(0); }
-    .cta-sub { font-size: 11.5px; color: var(--text-muted); margin-top: 12px; letter-spacing: .04em; }
-    .divider { margin: 40px 0; border: none; border-top: 1px solid rgba(13,59,46,.12); }
-    .pulse-svg path { stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawPulse 2s 1s ease forwards; }
-    @keyframes drawPulse { to { stroke-dashoffset: 0; } }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--green-deep:#0d3b2e;--green-mid:#145c44;--green-accent:#1e8a5e;--gold:#c9933a;--gold-light:#e8b96a;--cream:#faf6ef;--white:#ffffff;--text-dark:#0d1f19;--text-muted:#4a6358;}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);min-height:100vh;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(30,138,94,.12) 0%,transparent 70%);pointer-events:none;z-index:0}
+    .page-wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px 80px}
+    .header-band{background:var(--green-deep);text-align:center;padding:14px 24px;letter-spacing:.18em;font-size:10px;font-weight:600;color:var(--gold-light);text-transform:uppercase;position:sticky;top:0;z-index:10}
+    .hero{padding:72px 0 56px;text-align:center;animation:fadeUp .9s ease both}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--green-accent);margin-bottom:28px}
+    .eyebrow::before,.eyebrow::after{content:'';width:32px;height:1px;background:var(--green-accent);opacity:.6}
+    .hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,8vw,58px);font-weight:700;line-height:1.08;color:var(--green-deep);margin-bottom:8px}
+    .hero-headline .accent{color:var(--gold);display:block;font-style:italic}
+    .pulse-line{margin:36px auto;width:100%;max-width:420px;display:block}
+    .truth-card{background:var(--white);border-left:4px solid var(--gold);border-radius:0 16px 16px 0;padding:32px 28px;margin:0 0 32px;box-shadow:0 8px 40px rgba(13,59,46,.08);animation:fadeUp .9s .2s ease both}
+    .truth-card p{font-size:15.5px;line-height:1.75;color:var(--text-muted);margin-bottom:14px}
+    .truth-card p:last-child{margin-bottom:0}
+    .truth-highlight{font-weight:600;color:var(--green-deep);font-size:16px}
+    .cta-label{display:inline-block;background:var(--green-deep);color:var(--gold-light);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-top:8px}
+    .offer-box{background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-mid) 100%);border-radius:20px;padding:36px 28px;color:var(--white);margin-bottom:32px;position:relative;overflow:hidden;animation:fadeUp .9s .35s ease both}
+    .offer-box::after{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(201,147,58,.12)}
+    .offer-badge{background:var(--gold);color:var(--green-deep);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:100px;display:inline-block;margin-bottom:18px}
+    .offer-box h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;line-height:1.3;color:var(--gold-light);margin-bottom:16px}
+    .offer-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .offer-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.88)}
+    .offer-list li::before{content:'✦';color:var(--gold);font-size:10px;margin-top:4px;flex-shrink:0}
+    .urgency{text-align:center;margin-bottom:32px;animation:fadeUp .9s .5s ease both}
+    .urgency p{font-size:13px;color:var(--text-muted);line-height:1.65}
+    .urgency strong{color:var(--green-deep);font-weight:600}
+    .cta-wrap{text-align:center;animation:fadeUp .9s .65s ease both}
+    .cta-btn{display:inline-block;background:var(--gold);color:var(--green-deep);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:20px 48px;border-radius:100px;box-shadow:0 6px 28px rgba(201,147,58,.40);transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+    .cta-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(201,147,58,.45);background:var(--gold-light)}
+    .cta-sub{font-size:11.5px;color:var(--text-muted);margin-top:12px;letter-spacing:.04em}
+    .pulse-svg path{stroke-dasharray:600;stroke-dashoffset:600;animation:drawPulse 2s 1s ease forwards}
+    @keyframes drawPulse{to{stroke-dashoffset:0}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
   </style>
-<!-- TikTok Pixel Code Start -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-  ttq.load('D806VLRC77U44OJJ1CVG');
-  ttq.page();
-  ttq.track('ViewContent', {content_name:'HealthBody Landing Page', content_type:'product'});
-}(window, document, 'ttq'));
-</script>
-<!-- TikTok Pixel Code End -->
 </head>
 <body>
+
   <div class="header-band">Health Body Community &nbsp;·&nbsp; Free Membership</div>
+
   <div class="page-wrap">
     <section class="hero">
       <div class="eyebrow">Health Body Community</div>
@@ -81,12 +68,14 @@
         <path d="M0 24 H100 L115 8 L130 40 L145 4 L160 44 L175 18 L190 24 H420" stroke="#1e8a5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </section>
+
     <div class="truth-card">
       <p>You take your medication every day, yet your body still feels <span class="truth-highlight">weak, tired, or out of balance.</span></p>
       <p>The truth? <strong>Your body is trying to tell you something.</strong></p>
       <p>Join the HealthBody community to learn the real causes, fix them early, and stay ahead before things get worse.</p>
       <span class="cta-label">Prioritize Your Health</span>
     </div>
+
     <div class="offer-box">
       <span class="offer-badge">⚡ Limited — First 100 Members Only</span>
       <h3>Get a Free Mini Course When You Join Today</h3>
@@ -97,27 +86,42 @@
         <li>Medical professionals answer your personal concerns &amp; questions inside the community</li>
       </ul>
     </div>
+
     <div class="urgency">
-      <p><strong>The question is simple:</strong><br />
-      Do you want to keep guessing — or finally get real answers from people who know?<br /><br />
+      <p><strong>The question is simple:</strong><br/>
+      Do you want to keep guessing — or finally get real answers from people who know?<br/><br/>
       <strong>Don't miss this window. Click below now.</strong></p>
     </div>
-    <div class="cta-wrap">
-      <a href="https://chat.whatsapp.com/FlMByUfyRco5RpE5wW0wLP" class="cta-btn" onclick="ttq.track('CompleteRegistration', {content_name: 'Join WhatsApp Community', content_type: 'lead'})" target="_blank" rel="noopener noreferrer">Join the Free Community →</a>
+
+    <div class="cta-wrap" id="ctaSection">
+      <a href="https://chat.whatsapp.com/FlMByUfyRco5RpE5wW0wLP"
+         class="cta-btn"
+         target="_blank"
+         rel="noopener noreferrer"
+         onclick="ttq.track('CompleteRegistration',{content_name:'Join WhatsApp Community',content_type:'lead'})">
+        Join the Free Community →
+      </a>
       <p class="cta-sub">Free to join &nbsp;·&nbsp; No credit card needed</p>
     </div>
   </div>
 
-<script>
-var _mf = false;
-window.addEventListener('scroll', function() {
-  if (_mf) return;
-  var el = document.querySelector('.cta-wrap');
-  if (el && el.getBoundingClientRect().top < window.innerHeight) {
-    _mf = true;
-    ttq.track('SubmitForm', {content_name:'CTA Reached', content_type:'lead'});
-  }
-});
-</script>
+  <script>
+    // TOP FUNNEL — ViewContent on page load
+    ttq.track('ViewContent', {content_name:'HealthBody Community Landing Page', content_type:'product'});
+
+    // MID FUNNEL — SubmitForm when CTA scrolls into view (fires once)
+    var midFired = false;
+    window.addEventListener('scroll', function() {
+      if (midFired) return;
+      var cta = document.getElementById('ctaSection');
+      if (cta && cta.getBoundingClientRect().top < window.innerHeight) {
+        midFired = true;
+        ttq.track('SubmitForm', {content_name:'CTA Button Visible', content_type:'lead'});
+      }
+    });
+
+    // BOTTOM FUNNEL — CompleteRegistration is on the button onclick above
+  </script>
+
 </body>
 </html>
