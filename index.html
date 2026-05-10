@@ -106,5 +106,33 @@
       <p class="cta-sub">Free to join &nbsp;·&nbsp; No credit card needed</p>
     </div>
   </div>
+
+<script>
+// TOP FUNNEL — ViewContent on page load
+window.addEventListener('load', function() {
+  ttq.track('ViewContent', {
+    content_name: 'HealthBody Community Landing Page',
+    content_type: 'product'
+  });
+});
+
+// MID FUNNEL — SubmitForm when CTA section is visible
+var ctaObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      ttq.track('SubmitForm', {
+        content_name: 'Join WhatsApp Community CTA Viewed',
+        content_type: 'lead'
+      });
+      ctaObserver.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+
+window.addEventListener('load', function() {
+  var ctaEl = document.querySelector('.cta-wrap');
+  if (ctaEl) ctaObserver.observe(ctaEl);
+});
+</script>
 </body>
 </html>
