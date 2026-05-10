@@ -96,7 +96,7 @@
     <div class="cta-wrap" id="ctaSection">
       <a href="https://chat.whatsapp.com/FlMByUfyRco5RpE5wW0wLP"
          class="cta-btn"
-         onclick="ttq.track('CompleteRegistration',{content_name:'Join WhatsApp Community',content_type:'lead'})"
+         onclick="ttq.track('CompleteRegistration',{content_id:'healthbody-whatsapp-join',content_name:'Join WhatsApp Community',content_type:'lead'})"
          target="_blank"
          rel="noopener noreferrer">
         Join the Free Community →
@@ -108,6 +108,7 @@
 <script>
   // TOP FUNNEL — ViewContent fires on page load
   ttq.track('ViewContent', {
+    content_id: 'healthbody-landing',
     content_name: 'HealthBody Community Landing Page',
     content_type: 'product'
   });
@@ -120,6 +121,7 @@
     if (cta && cta.getBoundingClientRect().top < window.innerHeight) {
       midFired = true;
       ttq.track('SubmitForm', {
+        content_id: 'healthbody-cta',
         content_name: 'CTA Button Visible',
         content_type: 'lead'
       });
