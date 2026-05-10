@@ -96,6 +96,7 @@
     <div class="cta-wrap" id="ctaSection">
       <a href="https://chat.whatsapp.com/FlMByUfyRco5RpE5wW0wLP"
          class="cta-btn"
+         onclick="ttq.track('CompleteRegistration',{content_name:'Join WhatsApp Community',content_type:'lead'})"
          target="_blank"
          rel="noopener noreferrer">
         Join the Free Community →
@@ -103,5 +104,27 @@
       <p class="cta-sub">Free to join &nbsp;·&nbsp; No credit card needed</p>
     </div>
   </div>
+
+<script>
+  // TOP FUNNEL — ViewContent fires on page load
+  ttq.track('ViewContent', {
+    content_name: 'HealthBody Community Landing Page',
+    content_type: 'product'
+  });
+
+  // MID FUNNEL — SubmitForm fires once when CTA scrolls into view
+  var midFired = false;
+  window.addEventListener('scroll', function() {
+    if (midFired) return;
+    var cta = document.getElementById('ctaSection');
+    if (cta && cta.getBoundingClientRect().top < window.innerHeight) {
+      midFired = true;
+      ttq.track('SubmitForm', {
+        content_name: 'CTA Button Visible',
+        content_type: 'lead'
+      });
+    }
+  });
+</script>
 </body>
 </html>
