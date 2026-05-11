@@ -106,15 +106,20 @@
   </div>
 
 <script>
-  // TOP FUNNEL — ViewContent fires on page load
-  ttq.track('ViewContent', {
-    content_id: 'healthbody-landing',
-    content_name: 'HealthBody Community Landing Page',
-    content_type: 'product'
+  var midFired = false;
+
+  // TOP FUNNEL — ViewContent after pixel fully loads
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      ttq.track('ViewContent', {
+        content_id: 'healthbody-landing',
+        content_name: 'HealthBody Community Landing Page',
+        content_type: 'product'
+      });
+    }, 300);
   });
 
-  // MID FUNNEL — SubmitForm fires once when CTA scrolls into view
-  var midFired = false;
+  // MID FUNNEL — SubmitForm when CTA scrolls into view
   window.addEventListener('scroll', function() {
     if (midFired) return;
     var cta = document.getElementById('ctaSection');
