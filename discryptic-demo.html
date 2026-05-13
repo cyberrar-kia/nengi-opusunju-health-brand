@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Discryptic — Digital Venture Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#080808;
+  --s1:#0f0f0f;
+  --s2:#161616;
+  --b1:rgba(255,255,255,0.06);
+  --b2:rgba(255,255,255,0.1);
+  --t:#f2f2f2;
+  --t2:#a0a0a0;
+  --t3:#505050;
+  --accent:#e8e8e8;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:'Inter',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:24px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all .4s;
+}
+nav.s{
+  background:rgba(8,8,8,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--b1);
+  padding:18px 48px;
+}
+.logo{
+  font-family:'Syne',sans-serif;
+  font-size:13px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--t);text-decoration:none;
+}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{
+  font-size:12px;font-weight:400;letter-spacing:.04em;
+  color:var(--t2);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--t)}
+.nav-cta{
+  font-size:12px;font-weight:500;letter-spacing:.06em;
+  color:var(--bg);background:var(--t);
+  padding:9px 22px;text-decoration:none;
+  transition:opacity .2s;
+}
+.nav-cta:hover{opacity:.85}
+.nav-mob{display:none;background:none;border:none;color:var(--t);font-size:18px}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:80px;
+  padding:140px 48px 80px;
+  max-width:1280px;margin:0 auto;
+  position:relative;
+}
+.hero::before{
+  content:'';
+  position:fixed;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(255,255,255,0.025) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-left{}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--t2);margin-bottom:32px;
+}
+.hero-tag-dot{width:4px;height:4px;border-radius:50%;background:var(--t2)}
+.hero-h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(44px,5.5vw,72px);
+  font-weight:800;
+  line-height:1.0;
+  letter-spacing:-.025em;
+  color:var(--t);
+  margin-bottom:28px;
+}
+.hero-h1 em{
+  font-family:'Instrument Serif',serif;
+  font-style:italic;font-weight:400;
+  color:var(--t2);
+}
+.hero-sub{
+  font-size:15px;font-weight:300;line-height:1.75;
+  color:var(--t2);max-width:420px;
+  margin-bottom:44px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{
+  font-size:12px;font-weight:500;letter-spacing:.06em;
+  color:var(--bg);background:var(--t);
+  padding:13px 28px;text-decoration:none;
+  transition:opacity .2s;
+}
+.btn-p:hover{opacity:.85}
+.btn-g{
+  font-size:12px;font-weight:400;letter-spacing:.06em;
+  color:var(--t2);border:1px solid var(--b2);
+  padding:13px 28px;text-decoration:none;
+  transition:all .2s;
+}
+.btn-g:hover{color:var(--t);border-color:rgba(255,255,255,.2)}
+.hero-meta{
+  display:flex;gap:0;margin-top:64px;
+  border-top:1px solid var(--b1);padding-top:24px;
+}
+.hero-meta-item{
+  font-size:11px;letter-spacing:.06em;color:var(--t3);
+  padding-right:24px;margin-right:24px;
+  border-right:1px solid var(--b1);
+}
+.hero-meta-item:last-child{border-right:none}
+
+/* Portfolio card */
+.hero-right{
+  background:var(--s1);
+  border:1px solid var(--b1);
+  padding:36px;
+  position:relative;
+}
+.card-label{
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:20px;
+}
+.card-title{
+  font-family:'Syne',sans-serif;
+  font-size:16px;font-weight:700;
+  color:var(--t);margin-bottom:8px;
+  letter-spacing:-.01em;
+}
+.card-desc{
+  font-size:12px;line-height:1.7;color:var(--t2);
+  margin-bottom:28px;
+}
+.portfolio-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--b1);
+  border:1px solid var(--b1);
+}
+.portfolio-item{
+  background:var(--bg);
+  padding:20px;
+  transition:background .2s;
+  text-decoration:none;
+}
+.portfolio-item:hover{background:var(--s2)}
+.pi-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.pi-icon{
+  width:28px;height:28px;
+  background:var(--s2);border:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:var(--t2);
+  font-family:'Syne',sans-serif;flex-shrink:0;
+}
+.pi-name{font-size:12px;font-weight:600;color:var(--t);letter-spacing:.01em}
+.pi-desc{font-size:11px;line-height:1.6;color:var(--t3);font-weight:300}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--b1);max-width:1280px;margin:0 auto}
+
+/* ── ABOUT ── */
+.about-section{
+  padding:120px 48px;
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:80px;align-items:start;
+}
+.about-left{}
+.section-num{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-num::before{content:'';width:16px;height:1px;background:var(--t3)}
+.about-h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px,4vw,42px);
+  font-weight:800;line-height:1.05;
+  letter-spacing:-.025em;color:var(--t);
+}
+.about-h2 em{
+  font-family:'Instrument Serif',serif;
+  font-style:italic;font-weight:400;color:var(--t2);
+}
+.about-right{}
+.about-body{
+  font-size:16px;line-height:1.8;
+  color:var(--t2);font-weight:300;
+  margin-bottom:48px;max-width:560px;
+}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b1);border:1px solid var(--b1)}
+.pillar{background:var(--bg);padding:24px 28px;transition:background .2s}
+.pillar:hover{background:var(--s1)}
+.pillar-title{
+  font-size:13px;font-weight:600;color:var(--t);
+  margin-bottom:8px;letter-spacing:-.01em;
+}
+.pillar-desc{font-size:12px;line-height:1.65;color:var(--t3);font-weight:300}
+
+/* ── PORTFOLIO ── */
+.portfolio-section{
+  padding:0 48px 120px;
+  max-width:1280px;margin:0 auto;
+}
+.port-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:48px;flex-wrap:wrap;gap:16px;
+}
+.port-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--b1);border:1px solid var(--b1)}
+.port-card{
+  background:var(--bg);padding:40px;
+  position:relative;overflow:hidden;
+  transition:background .3s;text-decoration:none;display:block;
+}
+.port-card:hover{background:var(--s1)}
+.port-card::after{
+  content:'↗';
+  position:absolute;top:32px;right:32px;
+  font-size:16px;color:var(--t3);
+  transition:all .25s;
+}
+.port-card:hover::after{color:var(--t);transform:translate(2px,-2px)}
+.pc-letter{
+  width:40px;height:40px;
+  background:var(--s2);border:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:16px;font-weight:800;
+  color:var(--t2);margin-bottom:24px;
+  transition:border-color .2s;
+}
+.port-card:hover .pc-letter{border-color:var(--b2)}
+.pc-name{
+  font-family:'Syne',sans-serif;
+  font-size:20px;font-weight:700;
+  color:var(--t);margin-bottom:10px;
+  letter-spacing:-.02em;
+}
+.pc-desc{font-size:13px;line-height:1.7;color:var(--t2);font-weight:300;max-width:360px}
+.pc-tags{display:flex;gap:8px;margin-top:24px;flex-wrap:wrap}
+.pc-tag{
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--b1);padding:4px 12px;color:var(--t3);
+  transition:all .2s;
+}
+.port-card:hover .pc-tag{border-color:var(--b2);color:var(--t2)}
+
+/* ── CONTACT ── */
+.contact-section{
+  border-top:1px solid var(--b1);
+  padding:120px 48px;
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.contact-left .section-num{margin-bottom:16px}
+.contact-h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px,4vw,44px);
+  font-weight:800;line-height:1.05;
+  letter-spacing:-.025em;color:var(--t);
+  margin-bottom:16px;
+}
+.contact-sub{font-size:14px;line-height:1.75;color:var(--t2);font-weight:300}
+.form-field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.form-field label{
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--t3);
+}
+.form-field input,
+.form-field textarea{
+  background:var(--s1);
+  border:1px solid var(--b1);
+  color:var(--t);padding:14px 16px;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:300;
+  outline:none;transition:border-color .2s;resize:none;
+}
+.form-field input:focus,
+.form-field textarea:focus{border-color:rgba(255,255,255,.2)}
+.form-field input::placeholder,
+.form-field textarea::placeholder{color:var(--t3)}
+.form-submit{
+  width:100%;background:var(--t);color:var(--bg);
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:16px;border:none;margin-top:8px;
+  transition:opacity .2s;
+}
+.form-submit:hover{opacity:.85}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--b1);
+  padding:28px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+}
+.ft-copy{font-size:11px;color:var(--t3);letter-spacing:.04em}
+.ft-right{font-size:11px;color:var(--t3);letter-spacing:.04em}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:20px 24px}
+  nav.s{padding:16px 24px}
+  .nav-links{display:none}
+  .nav-mob{display:block}
+  .hero{grid-template-columns:1fr;gap:48px;padding:100px 24px 60px}
+  .hero-right{display:none}
+  .about-section{grid-template-columns:1fr;gap:32px;padding:80px 24px}
+  .portfolio-section{padding:0 24px 80px}
+  .port-list{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+  .contact-section{grid-template-columns:1fr;gap:40px;padding:80px 24px}
+  footer{padding:24px}
+  .hero-meta{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">Discryptic</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get in touch</a>
+  <button class="nav-mob" aria-label="Menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><div class="hero-tag-dot"></div>Digital Venture Studio</div>
+    <h1 class="hero-h1">
+      Building and<br>scaling digital<br><em>brands.</em>
+    </h1>
+    <p class="hero-sub">We identify opportunities in high-potential niches and turn them into profitable, sustainable online businesses.</p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn-p">Explore our projects</a>
+      <a href="#contact" class="btn-g">Get in touch</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">Venture studio model</div>
+      <div class="hero-meta-item">Lean builds</div>
+      <div class="hero-meta-item">SEO-driven growth</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="card-label">Current Portfolio</div>
+    <div class="card-title">Projects under the Discryptic umbrella</div>
+    <div class="card-desc">A focused portfolio of brands. Each project is designed to stand on its own as a sustainable online business.</div>
+    <div class="portfolio-grid">
+      <a class="portfolio-item" href="#">
+        <div class="pi-header">
+          <div class="pi-icon">A</div>
+          <div class="pi-name">Appster.com</div>
+        </div>
+        <div class="pi-desc">AI-powered search and recommendation engine for mobile and web apps.</div>
+      </a>
+      <a class="portfolio-item" href="#">
+        <div class="pi-header">
+          <div class="pi-icon">L</div>
+          <div class="pi-name">LaborCompliance.com</div>
+        </div>
+        <div class="pi-desc">Media site covering workplace regulations and compliance trends in the US.</div>
+      </a>
+      <a class="portfolio-item" href="#">
+        <div class="pi-header">
+          <div class="pi-icon">M</div>
+          <div class="pi-name">MoneyCare.com</div>
+        </div>
+        <div class="pi-desc">Personal finance tools, calculators and long-term planning resources.</div>
+      </a>
+      <a class="portfolio-item" href="#">
+        <div class="pi-header">
+          <div class="pi-icon">P</div>
+          <div class="pi-name">Parlay.com</div>
+        </div>
+        <div class="pi-desc">Data-driven content and resources for sports wagering.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-left rv">
+    <div class="section-num">01 — About</div>
+    <h2 class="about-h2">How we<br>build <em>things</em></h2>
+  </div>
+  <div class="about-right rv d2">
+    <p class="about-body">Discryptic is a digital venture studio focused on identifying opportunities in high-potential niches and turning them into profitable online businesses. We combine lean development, content strategy, and technical precision to build brands that last.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-title">Lean development</div>
+        <div class="pillar-desc">We start with sharp MVPs and iterate quickly based on real signals.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">SEO-driven growth</div>
+        <div class="pillar-desc">Every project is built with search and content distribution in mind.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Technical precision</div>
+        <div class="pillar-desc">Clean architecture, modern frameworks and reliable infrastructure.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title">Long-term roadmap</div>
+        <div class="pillar-desc">Each brand is designed as a standalone business, not a short-term experiment.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section" id="portfolio">
+  <div class="port-head rv">
+    <div>
+      <div class="section-num" style="margin-bottom:12px">02 — Portfolio</div>
+      <h2 class="about-h2">Our <em>projects</em></h2>
+    </div>
+    <div style="font-size:12px;color:var(--t3)">4 active brands</div>
+  </div>
+  <div class="port-list rv">
+    <a class="port-card" href="#">
+      <div class="pc-letter">A</div>
+      <div class="pc-name">Appster.com</div>
+      <div class="pc-desc">AI-powered search and recommendation engine for mobile and web apps. Helping users discover the right tools faster.</div>
+      <div class="pc-tags">
+        <div class="pc-tag">AI</div>
+        <div class="pc-tag">Search</div>
+        <div class="pc-tag">SaaS</div>
+      </div>
+    </a>
+    <a class="port-card" href="#">
+      <div class="pc-letter">L</div>
+      <div class="pc-name">LaborCompliance.com</div>
+      <div class="pc-desc">Media site covering workplace regulations, best practices, and compliance trends in the United States.</div>
+      <div class="pc-tags">
+        <div class="pc-tag">Media</div>
+        <div class="pc-tag">Legal</div>
+        <div class="pc-tag">Content</div>
+      </div>
+    </a>
+    <a class="port-card" href="#">
+      <div class="pc-letter">M</div>
+      <div class="pc-name">MoneyCare.com</div>
+      <div class="pc-desc">Personal finance tools, calculators, and long-term planning resources for individuals and families.</div>
+      <div class="pc-tags">
+        <div class="pc-tag">Finance</div>
+        <div class="pc-tag">Tools</div>
+        <div class="pc-tag">Content</div>
+      </div>
+    </a>
+    <a class="port-card" href="#">
+      <div class="pc-letter">P</div>
+      <div class="pc-name">Parlay.com</div>
+      <div class="pc-desc">Data-driven content and resources for sports wagering. Analytics, picks, and community for serious bettors.</div>
+      <div class="pc-tags">
+        <div class="pc-tag">Sports</div>
+        <div class="pc-tag">Data</div>
+        <div class="pc-tag">Media</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-left rv">
+    <div class="section-num">03 — Contact</div>
+    <h2 class="contact-h2">Work with<br>Discryptic</h2>
+    <p class="contact-sub">If you're a developer, designer or partner interested in collaborating with us, feel free to reach out.</p>
+  </div>
+  <div class="rv d2">
+    <div class="form-field">
+      <label>Name</label>
+      <input type="text" placeholder="Your name"/>
+    </div>
+    <div class="form-field">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com"/>
+    </div>
+    <div class="form-field">
+      <label>Message</label>
+      <textarea rows="5" placeholder="Tell us about your project or profile"></textarea>
+    </div>
+    <button class="form-submit" onclick="this.textContent='Message sent ✓';this.style.background='#2d2d2d';this.style.color='#a0a0a0'">Send Message</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-copy">© 2025 Discryptic. All rights reserved.</div>
+  <div class="ft-right">Digital venture studio.</div>
+</footer>
+
+<script>
+// NAV scroll
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('s',scrollY>40));
+
+// Reveal
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
